@@ -1,0 +1,110 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "sme-cfo-kpi-dashboard-preview-v1.0",
+  "title": "CFO KPI Dashboard — AI-Ready | Preview",
+  "description": "Preview schema (6 of 30 KPIs). Full version with all 30 pre-configured KPIs, thresholds, scorecard aggregation, and agent instructions available at https://structuredfinance.gumroad.com",
+  "version": "1.0.0",
+  "standard": "IFRS / EU-aligned",
+  "license": "MIT (preview only) — Full commercial version on Gumroad",
+
+  "definitions": {
+    "status_enum": { "type": "string", "enum": ["GREEN", "AMBER", "RED", "N/A"] },
+    "trend_enum": { "type": "string", "enum": ["UP", "DOWN", "STABLE", "N/A"] },
+    "direction_enum": { "type": "string", "enum": ["HIGHER_IS_BETTER", "LOWER_IS_BETTER"] }
+  },
+
+  "preview_kpis": [
+    {
+      "id": "PR-01",
+      "name": "Gross Profit Margin",
+      "category": "PROFITABILITY",
+      "formula": "Gross Profit / Revenue × 100",
+      "unit": "PERCENTAGE",
+      "direction": "HIGHER_IS_BETTER",
+      "thresholds": { "green_min": 40, "amber_min": 25, "red_max": 25 },
+      "value": null, "target": null, "prior_period": null,
+      "status": "N/A", "trend": "N/A", "note": ""
+    },
+    {
+      "id": "PR-02",
+      "name": "EBITDA Margin",
+      "category": "PROFITABILITY",
+      "formula": "EBITDA / Revenue × 100",
+      "unit": "PERCENTAGE",
+      "direction": "HIGHER_IS_BETTER",
+      "thresholds": { "green_min": 15, "amber_min": 8, "red_max": 8 },
+      "value": null, "target": null, "prior_period": null,
+      "status": "N/A", "trend": "N/A", "note": ""
+    },
+    {
+      "id": "LQ-01",
+      "name": "Current Ratio",
+      "category": "LIQUIDITY",
+      "formula": "Current Assets / Current Liabilities",
+      "unit": "RATIO",
+      "direction": "HIGHER_IS_BETTER",
+      "thresholds": { "green_min": 2.0, "amber_min": 1.0, "red_max": 1.0 },
+      "value": null, "target": null, "prior_period": null,
+      "status": "N/A", "trend": "N/A", "note": ""
+    },
+    {
+      "id": "LQ-04",
+      "name": "Days Sales Outstanding",
+      "category": "LIQUIDITY",
+      "formula": "(Accounts Receivable / Revenue) × 30",
+      "unit": "DAYS",
+      "direction": "LOWER_IS_BETTER",
+      "thresholds": { "green_max": 30, "amber_max": 60, "red_min": 60 },
+      "value": null, "target": null, "prior_period": null,
+      "status": "N/A", "trend": "N/A",
+      "note": "direction=LOWER_IS_BETTER: high DSO signals slow collections — opposite of ROE where higher is better"
+    },
+    {
+      "id": "GR-02",
+      "name": "Revenue Growth YoY",
+      "category": "GROWTH",
+      "formula": "(Revenue[M] - Revenue[M-12]) / Revenue[M-12] × 100",
+      "unit": "PERCENTAGE",
+      "direction": "HIGHER_IS_BETTER",
+      "thresholds": { "green_min": 10, "amber_min": 0, "red_max": 0 },
+      "value": null, "target": null, "prior_period": null,
+      "status": "N/A", "trend": "N/A", "note": ""
+    },
+    {
+      "id": "DS-01",
+      "name": "Debt-to-EBITDA Ratio",
+      "category": "DEBT_SOLVENCY",
+      "formula": "Total Debt / EBITDA",
+      "unit": "RATIO",
+      "direction": "LOWER_IS_BETTER",
+      "thresholds": { "green_max": 2.0, "amber_max": 3.5, "red_min": 3.5 },
+      "value": null, "target": null, "prior_period": null,
+      "status": "N/A", "trend": "N/A", "note": ""
+    }
+  ],
+
+  "status_calculation_preview": {
+    "description": "How agents compute status from value + threshold + direction",
+    "HIGHER_IS_BETTER": "if value >= green_min → GREEN; elif value >= amber_min → AMBER; else → RED",
+    "LOWER_IS_BETTER": "if value <= green_max → GREEN; elif value <= amber_max → AMBER; else → RED",
+    "note": "Full agent_instructions block with scorecard aggregation logic included in paid version"
+  },
+
+  "full_version": {
+    "total_kpis": 30,
+    "categories": ["PROFITABILITY (6)", "LIQUIDITY (7)", "GROWTH (6)", "EFFICIENCY (6)", "DEBT_SOLVENCY (5)"],
+    "additional_features": [
+      "All 30 KPIs pre-configured with default thresholds — no setup required",
+      "direction flag on every KPI (prevents AI misclassification)",
+      "Scorecard aggregation: overall GREEN/AMBER/RED status",
+      "Historical values array (6 months) for trend analysis",
+      "Alert types: CRITICAL / WARNING / INFO with escalation logic",
+      "Executive commentary template for board reporting",
+      "6-month trend table for board pack",
+      "Compatible frameworks: LangChain, AutoGen, CrewAI, n8n, Make, Power Automate",
+      "Companion Markdown document (board-ready format)"
+    ],
+    "url": "https://structuredfinance.gumroad.com",
+    "price": "$59"
+  }
+}
