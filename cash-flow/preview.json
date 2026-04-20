@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "sme-cash-flow-forecast-preview-v1.0",
+  "title": "SME Cash Flow Forecast — 12-Month Rolling | Preview",
+  "description": "Preview schema (operating inflows only). Full version with all 40+ line items, buffer alerts, variance analysis, and agent instructions available at https://structuredfinance.gumroad.com",
+  "version": "1.0.0",
+  "standard": "IFRS / EU-aligned",
+  "license": "MIT (preview only) — Full commercial version on Gumroad",
+
+  "definitions": {
+    "monthly_values": {
+      "type": "object",
+      "properties": {
+        "M01": { "type": "number" }, "M02": { "type": "number" }, "M03": { "type": "number" },
+        "M04": { "type": "number" }, "M05": { "type": "number" }, "M06": { "type": "number" },
+        "M07": { "type": "number" }, "M08": { "type": "number" }, "M09": { "type": "number" },
+        "M10": { "type": "number" }, "M11": { "type": "number" }, "M12": { "type": "number" }
+      }
+    },
+    "buffer_status_enum": {
+      "type": "string",
+      "enum": ["ABOVE_MINIMUM", "WARNING", "BELOW_MINIMUM"]
+    },
+    "flag_enum": {
+      "type": "string",
+      "enum": ["GREEN", "AMBER", "RED", "NONE"]
+    }
+  },
+
+  "preview_section": {
+    "section": "Operating Inflows (preview)",
+    "note": "3 of 5 operating inflow items shown. Full version includes operating outflows (10 items), investing flows (6 items), financing flows (8 items), cash position summary, variance analysis, and alerts.",
+    "items": [
+      {
+        "id": "OI-01",
+        "label": "Cash receipts from customers",
+        "category": "OPERATING",
+        "type": "INFLOW",
+        "values": { "M01": 0, "M02": 0, "M03": 0, "M04": 0, "M05": 0, "M06": 0, "M07": 0, "M08": 0, "M09": 0, "M10": 0, "M11": 0, "M12": 0 },
+        "total_12m": 0,
+        "note": ""
+      },
+      {
+        "id": "OI-02",
+        "label": "Advance payments received",
+        "category": "OPERATING",
+        "type": "INFLOW",
+        "values": { "M01": 0, "M02": 0, "M03": 0, "M04": 0, "M05": 0, "M06": 0, "M07": 0, "M08": 0, "M09": 0, "M10": 0, "M11": 0, "M12": 0 },
+        "total_12m": 0,
+        "note": ""
+      },
+      {
+        "id": "OI-03",
+        "label": "VAT / tax refunds received",
+        "category": "OPERATING",
+        "type": "INFLOW",
+        "values": { "M01": 0, "M02": 0, "M03": 0, "M04": 0, "M05": 0, "M06": 0, "M07": 0, "M08": 0, "M09": 0, "M10": 0, "M11": 0, "M12": 0 },
+        "total_12m": 0,
+        "note": ""
+      }
+    ]
+  },
+
+  "closing_balance_formula": {
+    "description": "Preview of built-in calculation logic",
+    "formula": "closing_balance[Mn] = opening_balance[Mn] + net_operating[Mn] + net_investing[Mn] + net_financing[Mn]",
+    "buffer_logic": "if closing < minimum_cash_buffer → BELOW_MINIMUM (CRITICAL alert)"
+  },
+
+  "full_version": {
+    "total_line_items": "40+",
+    "sections": 8,
+    "additional_features": [
+      "Complete operating outflows (10 items): suppliers, payroll, rent, utilities, professional fees",
+      "Investing cash flows (6 items): capex, asset sales, acquisitions",
+      "Financing cash flows (8 items): loans, equity, lease payments, dividends",
+      "Cash position summary with monthly buffer status",
+      "Variance analysis with GREEN/AMBER/RED flagging",
+      "5 automated alert types with severity levels and recommended actions",
+      "Assumptions log with 7 configurable parameters",
+      "Compatible frameworks: LangChain, AutoGen, CrewAI, n8n, Make, Power Automate",
+      "Companion Markdown document (board-ready format)"
+    ],
+    "url": "https://structuredfinance.gumroad.com",
+    "price": "$49"
+  }
+}
