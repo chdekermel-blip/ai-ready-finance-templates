@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "sme-due-diligence-checklist-preview-v1.0",
+  "title": "SME Due Diligence Checklist — Preview",
+  "description": "Preview schema (2 of 9 sections). Full version with all 90 items, automation triggers, example payload and agent instructions available at https://structuredfinance.gumroad.com",
+  "version": "1.0.0",
+  "standard": "IFRS / EU-aligned",
+  "license": "MIT (preview only) — Full commercial version on Gumroad",
+
+  "definitions": {
+    "status_enum": {
+      "type": "string",
+      "enum": ["PASS", "FAIL", "PARTIAL", "N/A", "PENDING"]
+    },
+    "risk_enum": {
+      "type": "string",
+      "enum": ["HIGH", "MEDIUM", "LOW"]
+    },
+    "checklist_item": {
+      "type": "object",
+      "required": ["id", "description", "status", "risk"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[A-Z]{2}-[0-9]{2}$" },
+        "description": { "type": "string" },
+        "status": { "$ref": "#/definitions/status_enum" },
+        "risk": { "$ref": "#/definitions/risk_enum" },
+        "note": { "type": "string" },
+        "document_received": { "type": "boolean" },
+        "document_reference": { "type": "string" },
+        "reviewed_by": { "type": "string" },
+        "reviewed_date": { "type": "string", "format": "date" }
+      }
+    }
+  },
+
+  "preview_sections": [
+    {
+      "section_id": "CL",
+      "section_name": "Corporate & Legal Structure",
+      "objective": "Confirm legal existence, ownership, and governance integrity",
+      "items": [
+        { "id": "CL-01", "description": "Certificate of incorporation / registration", "status": "PENDING", "risk": "HIGH" },
+        { "id": "CL-02", "description": "Current articles of association / bylaws", "status": "PENDING", "risk": "HIGH" },
+        { "id": "CL-03", "description": "Shareholder register (full cap table)", "status": "PENDING", "risk": "HIGH" }
+      ],
+      "note": "Preview: 3 of 10 items shown"
+    },
+    {
+      "section_id": "FA",
+      "section_name": "Financial Statements & Accounting",
+      "objective": "Verify financial accuracy, sustainability, and quality of earnings",
+      "items": [
+        { "id": "FA-01", "description": "Audited P&L — last 3 fiscal years", "status": "PENDING", "risk": "HIGH" },
+        { "id": "FA-02", "description": "Audited balance sheets — last 3 fiscal years", "status": "PENDING", "risk": "HIGH" },
+        { "id": "FA-03", "description": "Cash flow statements — last 3 fiscal years", "status": "PENDING", "risk": "HIGH" }
+      ],
+      "note": "Preview: 3 of 15 items shown"
+    }
+  ],
+
+  "full_version": {
+    "total_sections": 9,
+    "total_items": 90,
+    "sections_included": ["CL", "FA", "TX", "CO", "DF", "HR", "IP", "LR", "OT"],
+    "additional_features": [
+      "Complete 90-item checklist across all 9 sections",
+      "Consolidated risk summary table",
+      "Deal recommendation output (PROCEED / PROCEED_WITH_CONDITIONS / FURTHER_INVESTIGATION / DO_NOT_PROCEED)",
+      "Automation triggers for AI agent workflows",
+      "Example JSON payload ready to use",
+      "Compatible frameworks: LangChain, CrewAI, AutoGen, OpenAI Assistants API, Anthropic Tool Use",
+      "Companion Markdown document (board-ready format)"
+    ],
+    "url": "https://structuredfinance.gumroad.com",
+    "price": "$49"
+  },
+
+  "agent_instructions_preview": {
+    "note": "Full agent_instructions block included in paid version",
+    "compatible_frameworks": ["LangChain", "CrewAI", "AutoGen", "OpenAI Assistants API", "Anthropic Tool Use"],
+    "automation_triggers_preview": {
+      "FAIL_HIGH": "Escalate immediately to human reviewer",
+      "note": "Full trigger set (5 triggers) in paid version"
+    }
+  }
+}
