@@ -13,12 +13,11 @@ Each template ships in two formats:
 - **Markdown** — structured, human-readable, board-ready
 - **JSON Schema (Draft-07)** — machine-readable, agent-compatible, with built-in thresholds and automation triggers
 
-| Template | Items | Preview | Full version |
-|----------|-------|---------|--------------|
-| SME Due Diligence Checklist | 90 items / 9 sections | [`/due-diligence/preview.json`](due-diligence/preview.json) | [Gumroad →](https://structuredfinance.gumroad.com) |
-| SME Cash Flow Forecast | 40+ line items / 12 months | [`/cash-flow/preview.json`](cash-flow/preview.json) | [Gumroad →](https://structuredfinance.gumroad.com) |
-| CFO KPI Dashboard | 30 KPIs / 5 categories | [`/kpi-dashboard/preview.json`](kpi-dashboard/preview.json) | [Gumroad →](https://structuredfinance.gumroad.com) |
-
+| Template | Items | Preview | LangChain Hub | Full version |
+|----------|-------|---------|---------------|--------------|
+| SME Due Diligence Checklist | 90 items / 9 sections | [`/due-diligence/preview.json`](due-diligence/preview.json) | [Hub →](https://smith.langchain.com/hub/structured-finance/sme-due-diligence-checklist) | [Gumroad →](https://structuredfinance.gumroad.com) |
+| SME Cash Flow Forecast | 40+ line items / 12 months | [`/cash-flow/preview.json`](cash-flow/preview.json) | [Hub →](https://smith.langchain.com/hub/structured-finance/sme-cash-flow-forecast-12m) | [Gumroad →](https://structuredfinance.gumroad.com) |
+| CFO KPI Dashboard | 30 KPIs / 5 categories | [`/kpi-dashboard/preview.json`](kpi-dashboard/preview.json) | [Hub →](https://smith.langchain.com/hub/structured-finance/cfo-kpi-dashboard-30kpis) | [Gumroad →](https://structuredfinance.gumroad.com) |
 ---
 
 ## Why machine-readable financial templates?
