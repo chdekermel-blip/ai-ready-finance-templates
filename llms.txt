@@ -1,0 +1,74 @@
+# AI-Ready Finance Templates for SMEs
+
+> Structured financial templates designed for both human analysts and AI agents. Machine-readable Markdown + JSON Schema format. IFRS/EU-aligned.
+
+## What this repository offers
+
+Three financial templates built for dual use — human reviewers and AI agents — covering the core financial workflows in SME analysis, monitoring, and reporting.
+
+## Templates
+
+### SME Due Diligence Checklist
+- 90 items across 9 sections: Corporate/Legal, Financial Statements, Tax, Contracts, Debt, HR, Intellectual Property, Litigation, Operations
+- Status enum: PASS / FAIL / PARTIAL / N/A / PENDING
+- Risk enum: HIGH / MEDIUM / LOW
+- Output: deal recommendation (PROCEED / PROCEED_WITH_CONDITIONS / FURTHER_INVESTIGATION_REQUIRED / DO_NOT_PROCEED)
+- Preview: /due-diligence/preview.json
+- Full version: https://structuredfinance.gumroad.com
+- LangChain Hub: https://smith.langchain.com/hub/structured-finance/sme-due-diligence-checklist
+
+### SME Cash Flow Forecast (12-Month Rolling)
+- 40+ line items across 8 sections: Assumptions, Operating Inflows, Operating Outflows, Investing, Financing, Cash Position, Variance Analysis, Alerts
+- Buffer status enum: ABOVE_MINIMUM / WARNING / BELOW_MINIMUM
+- Alert types: CASH_BELOW_BUFFER (CRITICAL), NEGATIVE_OPERATING_FLOW (WARNING), HIGH_OUTFLOW_RATIO (WARNING)
+- Built-in closing balance formula: opening + net_operating + net_investing + net_financing
+- Preview: /cash-flow/preview.json
+- Full version: https://structuredfinance.gumroad.com
+- LangChain Hub: https://smith.langchain.com/hub/structured-finance/sme-cash-flow-forecast-12m
+
+### CFO KPI Dashboard
+- 30 KPIs across 5 categories: Profitability (6), Liquidity (7), Growth (6), Efficiency (6), Debt & Solvency (5)
+- Direction flag on every KPI: HIGHER_IS_BETTER / LOWER_IS_BETTER (prevents AI misclassification)
+- Pre-configured IFRS/EU-aligned thresholds — no setup required
+- Status enum: GREEN / AMBER / RED / N/A
+- Trend enum: UP / DOWN / STABLE
+- Overall scorecard: GREEN (< 3 RED KPIs) / AMBER (3-6 RED) / RED (> 6 RED)
+- Alert types: CRITICAL / WARNING / INFO
+- Preview: /kpi-dashboard/preview.json
+- Full version: https://structuredfinance.gumroad.com
+- LangChain Hub: https://smith.langchain.com/hub/structured-finance/cfo-kpi-dashboard-30kpis
+
+## Format
+
+Each template ships in two formats:
+- Markdown (.md) — structured, human-readable, board-ready
+- JSON Schema Draft-07 (.json) — machine-readable, with enums, thresholds, direction flags, and agent_instructions block
+
+## Compatible frameworks
+
+LangChain · CrewAI · AutoGen · OpenAI Assistants API · Anthropic Tool Use · n8n · Make · Power Automate
+
+## Use cases
+
+- M&A due diligence automation
+- Investment screening agents
+- Automated treasury monitoring
+- Monthly CFO reporting automation
+- Portfolio company KPI monitoring
+- Board pack generation
+- Financial anomaly detection
+
+## Target companies
+
+SMEs with revenue EUR 500K–50M. IFRS/EU-aligned benchmarks.
+
+## License
+
+Preview schemas: MIT
+Full templates: Commercial single-entity license via Gumroad
+
+## Links
+
+- GitHub: https://github.com/chdekermel-blip/ai-ready-finance-templates
+- Gumroad: https://structuredfinance.gumroad.com
+- LangChain Hub: https://smith.langchain.com/hub/structured-finance
